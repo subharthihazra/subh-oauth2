@@ -6,6 +6,7 @@ import React, {
   useContext,
   ReactNode,
   useEffect,
+  useCallback, // Import useCallback
 } from "react";
 
 // Define the context type
@@ -24,7 +25,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<Record<string, any> | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     for (let i = 0; i < 1; i++) {
       try {
         const { data } = await axios.post(
@@ -48,11 +49,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     }
 
     setLoading(false);
-  };
+  }, [user]); // Add user to dependencies
 
   useEffect(() => {
     checkAuth();
-  }, []);
+  }, [checkAuth]); // Add checkAuth to the dependency array
 
   const logout = async () => {
     await axios.post(
@@ -64,6 +65,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     );
     setUser(null);
   };
+
   return (
     <AppContext.Provider value={{ user, setUser, loading, setLoading, logout }}>
       {children}
