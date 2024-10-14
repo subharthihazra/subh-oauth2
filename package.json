@@ -1,13 +1,15 @@
 {
   "name": "subh-oauth2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Simple Oauth Client Library",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": ["oauth2"],
+  "keywords": [
+    "oauth2"
+  ],
   "author": "Subharthi Hazra",
   "license": "MIT",
   "devDependencies": {
@@ -15,13 +17,15 @@
     "@types/node": "^22.7.5",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
-    "typescript": "^5.6.3",
-    "zod": "^3.23.8"
+    "typescript": "^5.6.3"
   },
   "files": [
     "lib",
     "dist",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
 }
