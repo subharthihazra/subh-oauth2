@@ -93,7 +93,7 @@ For better understanding, go through the `/example`.
 
 
 
-## Implementation Choices and Challenges in My OAuth2 Client Library
+## Implementation Choices and Challenges
 
 I created an OAuth2 client JavaScript library that works on both server-side and client-side environments. I decided to use the Proof Key for Code Exchange (PKCE) flow to improve security, especially for public clients.
 
