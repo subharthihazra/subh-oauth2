@@ -51,7 +51,7 @@ client = {
 
 
 # Server Side Usage
-In server-side use, we should put `<client-secret>`, store it properly in `ENV` so that is does NOT get exposed in public.
+In server-side use, we should put `<client-secret>`, store it properly in `ENV` so that it does NOT get exposed in public.
 Sample `OAuthClient` Setup:
 ```
 client = {
@@ -69,4 +69,8 @@ client = {
     }
 };
 ```
+
+# Lib Support
+Workes with Auth0, Kinde Oauth Provider (Tested)
+Workes on both Server and Client Side JS (Tested)
 
