@@ -38,7 +38,6 @@ export async function handleCallback(
   if (validatedClient.pkce) {
     payload.code_verifier = validatedClient.pkce.code_verifier;
   }
-  console.log("uu-", payload);
 
   let reqHeaders: Record<string, string> = {
     "Content-Type": "application/x-www-form-urlencoded",
