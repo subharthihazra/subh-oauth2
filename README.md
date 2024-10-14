@@ -72,5 +72,6 @@ client = {
 
 # Lib Support
 Workes with Auth0, Kinde Oauth Provider (Tested)
+
 Workes on both Server and Client Side JS (Tested)
 
