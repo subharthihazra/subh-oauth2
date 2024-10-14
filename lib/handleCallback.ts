@@ -1,4 +1,3 @@
-import axios from "axios";
 import { OAuthClient, TokenResponse } from "./types";
 import { validateOAuthClient, validateTokenResponse } from "./utils";
 
@@ -55,14 +54,17 @@ export async function handleCallback(
     ).toString("base64")}`;
   }
 
-  const tokenResponse = await axios.post(
-    validatedClient.tokenUrl,
-    new URLSearchParams(payload).toString(),
-    {
-      headers: reqHeaders,
-    }
-  );
+  const response = await fetch(validatedClient.tokenUrl, {
+    method: "POST",
+    headers: reqHeaders,
+    body: new URLSearchParams(payload).toString(),
+  });
 
-  const validatedToken = validateTokenResponse(tokenResponse.data);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  const tokenResponse = await response.json();
+
+  const validatedToken = validateTokenResponse(tokenResponse);
   return validatedToken;
 }

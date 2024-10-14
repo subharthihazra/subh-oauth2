@@ -1,4 +1,3 @@
-import axios from "axios";
 import { OAuthClient, TokenResponse } from "./types";
 import { validateOAuthClient, validateTokenResponse } from "./utils";
 
@@ -18,16 +17,18 @@ export async function refreshToken(
     payload.client_secret = validatedClient.clientSecret;
   }
 
-  const tokenResponse = await axios.post(
-    validatedClient.tokenUrl,
-    new URLSearchParams(payload).toString(),
-    {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    }
-  );
+  const response = await fetch(validatedClient.tokenUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams(payload).toString(),
+  });
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  const tokenResponse = await response.json();
 
-  const validatedToken = validateTokenResponse(tokenResponse.data);
+  const validatedToken = validateTokenResponse(tokenResponse);
   return validatedToken;
 }

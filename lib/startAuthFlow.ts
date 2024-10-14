@@ -1,6 +1,5 @@
-import axios from "axios";
-import { OAuthClient, TokenResponse } from "./types";
-import { validateOAuthClient, validateTokenResponse, buildUrl } from "./utils";
+import { OAuthClient } from "./types";
+import { validateOAuthClient, buildUrl } from "./utils";
 
 export function startAuthFlow(client: OAuthClient): string {
   const validatedClient = validateOAuthClient(client);
