@@ -16,6 +16,7 @@ refreshToken(client: OAuthClient, refreshToken: string): Promise<TokenResponse>
 
 # Client Side Usage
 In client-side use, do NOT put `<client-secret>`, using PKCE is recommended ( some provider forces to use ).
+
 Sample `OAuthClient` Setup:
 ```js
 let client = {
@@ -36,6 +37,7 @@ let client = {
 
 # Implicit Flow
 In client-side use, we can use implicit flow, where access_token is shared directly, but NOT recommended.
+
 Sample `OAuthClient` Setup:
 ```js
 let client = {
@@ -52,6 +54,7 @@ let client = {
 
 # Server Side Usage
 In server-side use, we should put `<client-secret>`, store it properly in `ENV` so that it does NOT get exposed in public. PKCE should be used for better security, although it has provision to skip.
+
 Sample `OAuthClient` Setup:
 ```js
 let client = {
