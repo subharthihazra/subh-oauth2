@@ -71,9 +71,9 @@ let client = {
 ```
 
 # Lib Support
-Workes with Auth0, Kinde Oauth Provider (Tested)
+- [x] Workes with Auth0, Kinde Oauth Provider [Tested]
 
-Workes on both Server and Client Side JS (Tested)
+- [x] Workes on both Server and Client Side JS [Tested]
 
 # Example
 For better understanding, go through the `/example`.
