@@ -88,3 +88,27 @@ For better understanding, go through the `/example`.
 
   Live Demo: https://subh-oauth2-demo2.vercel.app
 
+
+
+## Implementation Choices and Challenges in My OAuth2 Client Library
+
+I created an OAuth2 client JavaScript library that works on both server-side and client-side environments. I decided to use the Proof Key for Code Exchange (PKCE) flow to improve security, especially for public clients.
+
+- ### Challenges I Faced:
+Documentation Issues: Working with identity providers like Kinde and Auth0 was tough because their docs focus more on SDKs. This made it hard to find the information I needed for API integration, so I spent a lot of time figuring things out.
+
+- ### Client-Side Crypto Problems:
+I ran into issues with the crypto library on the client side, which caused problems when trying to generate the code_challenge. I had to look for other libraries to handle this securely.
+
+- ### Tricky OAuth2 API Calls:
+Making the OAuth2 API calls was complicated, especially without a clear setup. I got a lot of errors, and the messages were often confusing, making it hard to troubleshoot. Also understanding the oauth flow was tricky.
+
+Overall, these challenges pushed me to dig deeper into the resources and find better ways to implement the OAuth2 client library.
+
+
+
+
+
+
+
+
