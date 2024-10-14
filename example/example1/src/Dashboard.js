@@ -22,11 +22,13 @@ const Dashboard = () => {
       </h1>
       <button onClick={logout}>Logout</button>
       <h3>Email: {user.preferred_email}</h3>
-      <img
-        src={`${user.picture}`}
-        style={{ borderRadius: "100%", width: "80px", height: "80px" }}
-        alt="dp"
-      />
+      {user.picture && (
+        <img
+          src={`${user.picture}`}
+          style={{ borderRadius: "100%", width: "80px", height: "80px" }}
+          alt="dp"
+        />
+      )}
     </div>
   );
 };
