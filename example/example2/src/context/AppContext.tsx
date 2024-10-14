@@ -64,6 +64,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       }
     );
     setUser(null);
+    window.location.href = "/login";
   };
 
   return (
