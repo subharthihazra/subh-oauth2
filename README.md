@@ -75,3 +75,16 @@ Workes with Auth0, Kinde Oauth Provider (Tested)
 
 Workes on both Server and Client Side JS (Tested)
 
+# Example
+For better understanding, go through the `/example`.
+
+- `example1` is a React Client Side Implementation 
+
+  Live Demo: https://subh-oauth2-demo1.vercel.app
+
+
+- `example2` is a NextJS 14 Server Side Implementation
+
+
+  Live Demo: https://subh-oauth2-demo2.vercel.app
+
