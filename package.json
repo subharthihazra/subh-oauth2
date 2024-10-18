@@ -1,6 +1,6 @@
 {
   "name": "subh-oauth2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Simple Oauth Client Library",
   "main": "dist/index.js",
   "scripts": {
