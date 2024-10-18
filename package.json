@@ -1,6 +1,6 @@
 {
   "name": "subh-oauth2",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Simple Oauth Client Library",
   "main": "dist/index.js",
   "scripts": {
@@ -27,5 +27,9 @@
   ],
   "dependencies": {
     "zod": "^3.23.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subharthihazra/subh-oauth2"
   }
 }
