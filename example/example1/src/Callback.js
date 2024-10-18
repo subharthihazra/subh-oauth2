@@ -21,8 +21,9 @@ const Callback = () => {
         const myState = sessionStorage.getItem("myState");
         const codeVerifier = sessionStorage.getItem("codeVerifier");
         const codeChallenge = sessionStorage.getItem("codeChallenge");
+        const scope = sessionStorage.getItem("scope");
 
-        const client = generateClient({ myState, codeVerifier, codeChallenge });
+        const client = generateClient({ myState, codeVerifier, codeChallenge, scope });
 
         const tokenResponse = await handleCallback(client, { code, state });
 
@@ -46,6 +47,7 @@ const Callback = () => {
         sessionStorage.removeItem("myState");
         sessionStorage.removeItem("codeVerifier");
         sessionStorage.removeItem("codeChallenge");
+        sessionStorage.removeItem("scope");
       }
     }
     perform_task();

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import pkceChallenge from "pkce-challenge";
@@ -8,6 +8,7 @@ import { startAuthFlow } from "subh-oauth2";
 
 const Login = () => {
   const { user, loading } = useContext(AuthContext);
+  const [scope, setScope] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,8 +29,9 @@ const Login = () => {
       sessionStorage.setItem("myState", myState);
       sessionStorage.setItem("codeVerifier", codeVerifier);
       sessionStorage.setItem("codeChallenge", codeChallenge);
+      sessionStorage.setItem("scope", scope);
 
-      const client = generateClient({ myState, codeVerifier, codeChallenge });
+      const client = generateClient({ myState, codeVerifier, codeChallenge, scope });
 
       const url = startAuthFlow(client);
 
@@ -43,6 +45,12 @@ const Login = () => {
     <div>
       <h2>Login</h2>
       {/* Add your login form here */}
+      <input
+        type="text"
+        placeholder="scope"
+        value={scope}
+        onChange={(e) => setScope(e.target.value)}
+      />
       <button onClick={handleLogin}>Login</button>
     </div>
   );
